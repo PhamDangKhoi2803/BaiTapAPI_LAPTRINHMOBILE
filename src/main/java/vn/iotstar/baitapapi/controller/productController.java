@@ -18,4 +18,9 @@ public class productController {
     public ResponseEntity<List<Product>> getProductsByCategory(@PathVariable Long categoryId) {
         return ResponseEntity.ok(productService.getProductsByCategory(categoryId));
     }
+
+    @GetMapping("/top-selling")
+    public ResponseEntity<List<Product>> getTop10BestSellingProducts() {
+        return ResponseEntity.ok(productService.getTop10BestSellingProducts());
+    }
 }

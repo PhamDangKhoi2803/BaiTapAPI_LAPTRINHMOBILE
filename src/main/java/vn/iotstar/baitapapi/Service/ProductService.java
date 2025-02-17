@@ -16,4 +16,8 @@ public class ProductService {
     public List<Product> getProductsByCategory(Long categoryId) {
         return productRepository.findByCategoryId(categoryId);
     }
+
+    public List<Product> getTop10BestSellingProducts() {
+        return productRepository.findTop10ByOrderByQuantitySoldDesc();
+    }
 }
