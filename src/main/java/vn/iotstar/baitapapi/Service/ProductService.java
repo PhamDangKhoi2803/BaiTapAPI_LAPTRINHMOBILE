@@ -20,4 +20,9 @@ public class ProductService {
     public List<Product> getTop10BestSellingProducts() {
         return productRepository.findTop10ByOrderByQuantitySoldDesc();
     }
+
+    public List<Product> getTop10NewestProducts() {
+        LocalDateTime sevenDaysAgo = LocalDateTime.now().minusDays(7);
+        return productRepository.findTop10ByCreatedAtAfterOrderByCreatedAtDesc(sevenDaysAgo);
+    }
 }

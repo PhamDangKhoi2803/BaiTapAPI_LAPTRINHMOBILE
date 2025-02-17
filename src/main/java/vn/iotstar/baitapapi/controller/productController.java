@@ -23,4 +23,9 @@ public class productController {
     public ResponseEntity<List<Product>> getTop10BestSellingProducts() {
         return ResponseEntity.ok(productService.getTop10BestSellingProducts());
     }
+
+    @GetMapping("/latest")
+    public ResponseEntity<List<Product>> getTop10NewestProducts() {
+        return ResponseEntity.ok(productService.getTop10NewestProducts());
+    }
 }
