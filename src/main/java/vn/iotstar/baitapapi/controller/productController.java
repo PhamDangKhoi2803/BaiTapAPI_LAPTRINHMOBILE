@@ -11,5 +11,11 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/products")
 public class productController {
+    @Autowired
+    private ProductService productService;
 
+    @GetMapping("/category/{categoryId}")
+    public ResponseEntity<List<Product>> getProductsByCategory(@PathVariable Long categoryId) {
+        return ResponseEntity.ok(productService.getProductsByCategory(categoryId));
+    }
 }

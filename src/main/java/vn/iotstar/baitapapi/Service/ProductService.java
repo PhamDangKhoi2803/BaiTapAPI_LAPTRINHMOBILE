@@ -10,5 +10,10 @@ import java.util.List;
 
 @Service
 public class ProductService {
+    @Autowired
+    private productRepository productRepository;
 
+    public List<Product> getProductsByCategory(Long categoryId) {
+        return productRepository.findByCategoryId(categoryId);
+    }
 }
